@@ -381,6 +381,10 @@ export function createElement(type, config, children) {
     }
   }
 
+  window.dispatchEvent(
+    new CustomEvent('react.create-element', { detail: { data: arguments } }),
+  )
+
   // Children can be more than one argument, and those are transferred onto
   // the newly allocated props object.
   const childrenLength = arguments.length - 2;
